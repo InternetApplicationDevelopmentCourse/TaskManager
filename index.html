@@ -1,14 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="script.js"></script>
-    <style src="style.css"></style>
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+    <link rel="stylesheet" href="style.css" />
+    <title>Task Manager</title>
+  </head>
+  <body>
+    <h1>Task Manager</h1>
+    <div class="hero">
+      <div class="add-task-container">
+        <input
+          type="text"
+          class="add-task-input"
+          placeholder="Add new task..."
+        />
+        <button class="add-task-btn">Add Task</button>
+      </div>
+
+      <ul class="tasks">
+        <li class="task checked">
+          <button class="task-check-btn"></button>
+          <p class="task-text">task text</p>
+          <div class="btns">
+            <button class="delete-btn">DELETE</button>
+            <button class="up-btn move-task-btn"></button>
+            <button class="down-btn move-task-btn"></button>
+          </div>
+        </li>
+        <li class="task">
+          <button class="task-check-btn"></button>
+          <p class="task-text">task text</p>
+          <div class="btns">
+            <button class="delete-btn">DELETE</button>
+            <button class="up-btn move-task-btn"></button>
+            <button class="down-btn move-task-btn"></button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </body>
 </html>

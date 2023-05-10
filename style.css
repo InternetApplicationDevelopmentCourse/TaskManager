@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    gap: 1rem;
+    padding: 1rem;
+    width: 40rem;
+}
+
+.add-task-container{
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    margin-bottom: 5rem;
+}
+
+.add-task-container .add-task-input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.add-task-container .add-task-btn {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+ul.tasks {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    width: 100%;
+    gap: 1rem;
+}
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.task .task-check-btn {
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.task.checked .task-check-btn {
+    background-color: rgb(68, 70, 184);
+}
+.task.checked .task-check-btn::before {
+    content: '✓';
+    color: #fff;
+}
+
+.task .task-text {
+    flex: 1;
+}
+.task.checked .task-text {
+    text-decoration: line-through;
+    color: rgb(157, 157, 157);
+}
+
+.task .btns {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.task .btns button {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.task .btns button.delete-btn {
+    background-color: rgb(184, 68, 68);
+    color: #fff;
+}
+.task .btns button.move-task-btn {
+    background-color: rgb(68, 70, 184);
+    color: #fff;
+    /* circle btn */
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.task .btns button.up-btn:before {
+    content: '⬆';
+}
+.task .btns button.down-btn:before{
+    content: '⬇';
+}
