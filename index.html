@@ -44,8 +44,35 @@
             <button class="down-btn move-task-btn"></button>
           </div>
         </li>
+        <li class="task">
+            <button class="task-check-btn"></button>
+            <p class="task-text">task text</p>
+            <div class="btns">
+              <button class="delete-btn">DELETE</button>
+              <button class="up-btn move-task-btn"></button>
+              <button class="down-btn move-task-btn"></button>
+            </div>
+          </li>
+          <li class="task checked">
+            <button class="task-check-btn"></button>
+            <p class="task-text">task text</p>
+            <div class="btns">
+              <button class="delete-btn">DELETE</button>
+              <button class="up-btn move-task-btn"></button>
+              <button class="down-btn move-task-btn"></button>
+            </div>
+          </li>
       </ul>
 
     </div>
+
+    <script>
+        const numOfTasks = document.getElementsByClassName('task').length;
+        document.getElementById('total-tasks').innerHTML = numOfTasks;
+        const numOfCompletedTasks = document.getElementsByClassName('checked').length;
+        document.getElementById('completed-tasks').innerHTML = numOfCompletedTasks;
+        const numOfUncompletedTasks = numOfTasks - numOfCompletedTasks;
+        document.getElementById('uncompleted-tasks').innerHTML = numOfUncompletedTasks;
+    </script>
   </body>
 </html>
