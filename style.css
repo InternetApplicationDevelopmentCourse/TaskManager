@@ -19,7 +19,7 @@
     justify-content: space-between;
     gap: 1rem;
     width: 100%;
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
 }
 
 .add-task-container .add-task-input {
@@ -36,6 +36,16 @@
     cursor: pointer;
 }
 
+.summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
 
 ul.tasks {
     display: flex;
@@ -116,3 +126,4 @@ ul.tasks {
 .task .btns button.down-btn:before{
     content: '⬇';
 }
+
