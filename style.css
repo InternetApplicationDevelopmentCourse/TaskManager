@@ -35,6 +35,8 @@ body {
     padding: 0.75rem;
     border: 1px solid #ccc;
     border-radius: 5px;
+    outline: 0;
+    font-size: 1.2rem;
 }
 
 .add-task-container .add-task-btn {
@@ -46,7 +48,7 @@ body {
     background-color: rgb(68, 70, 184);
     color: #fff;
     letter-spacing: 0.1rem;
-
+    font-size: 1.2rem;
 }
 
 .summary {
