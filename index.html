@@ -10,6 +10,11 @@
   </head>
   <body>
     <div class="hero">
+      <div class="error-msg">
+        <p>Error, try again...</p>
+        <!-- error icon -->
+        
+      </div>
       <div class="add-task-container">
         <input
           type="text"
@@ -20,9 +25,13 @@
       </div>
 
       <div class="summary">
-        <p class="summary-text"> Total Tasks: <span id="total-tasks">2</span> </p>
-        <p class="summary-text"> Completed Tasks: <span id="completed-tasks">1</span> </p>
-        <p class="summary-text"> Uncompleted Tasks: <span id="uncompleted-tasks">1</span> </p>
+        <p class="summary-text">Total Tasks: <span id="total-tasks">2</span></p>
+        <p class="summary-text">
+          Completed Tasks: <span id="completed-tasks">1</span>
+        </p>
+        <p class="summary-text">
+          Uncompleted Tasks: <span id="uncompleted-tasks">1</span>
+        </p>
       </div>
 
       <ul class="tasks">
@@ -45,34 +54,36 @@
           </div>
         </li>
         <li class="task">
-            <button class="task-check-btn"></button>
-            <p class="task-text">task text</p>
-            <div class="btns">
-              <button class="delete-btn">DELETE</button>
-              <button class="up-btn move-task-btn"></button>
-              <button class="down-btn move-task-btn"></button>
-            </div>
-          </li>
-          <li class="task checked">
-            <button class="task-check-btn"></button>
-            <p class="task-text">task text</p>
-            <div class="btns">
-              <button class="delete-btn">DELETE</button>
-              <button class="up-btn move-task-btn"></button>
-              <button class="down-btn move-task-btn"></button>
-            </div>
-          </li>
+          <button class="task-check-btn"></button>
+          <p class="task-text">task text</p>
+          <div class="btns">
+            <button class="delete-btn">DELETE</button>
+            <button class="up-btn move-task-btn"></button>
+            <button class="down-btn move-task-btn"></button>
+          </div>
+        </li>
+        <li class="task checked">
+          <button class="task-check-btn"></button>
+          <p class="task-text">task text</p>
+          <div class="btns">
+            <button class="delete-btn">DELETE</button>
+            <button class="up-btn move-task-btn"></button>
+            <button class="down-btn move-task-btn"></button>
+          </div>
+        </li>
       </ul>
-
     </div>
 
     <script>
-        const numOfTasks = document.getElementsByClassName('task').length;
-        document.getElementById('total-tasks').innerHTML = numOfTasks;
-        const numOfCompletedTasks = document.getElementsByClassName('checked').length;
-        document.getElementById('completed-tasks').innerHTML = numOfCompletedTasks;
-        const numOfUncompletedTasks = numOfTasks - numOfCompletedTasks;
-        document.getElementById('uncompleted-tasks').innerHTML = numOfUncompletedTasks;
+      const numOfTasks = document.getElementsByClassName("task").length;
+      document.getElementById("total-tasks").innerHTML = numOfTasks;
+      const numOfCompletedTasks =
+        document.getElementsByClassName("checked").length;
+      document.getElementById("completed-tasks").innerHTML =
+        numOfCompletedTasks;
+      const numOfUncompletedTasks = numOfTasks - numOfCompletedTasks;
+      document.getElementById("uncompleted-tasks").innerHTML =
+        numOfUncompletedTasks;
     </script>
   </body>
 </html>

@@ -25,6 +25,30 @@ body {
     width: 40rem;
 }
 
+.error-msg {
+    color: rgb(184, 68, 68);
+    font-size: 1.2rem;
+    font-weight: 500;
+    background: rgb(255, 235, 235);
+    padding: 0.5rem;
+    border-radius: 5px;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+.error-msg p {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.error-msg p::before {
+    content: '⚠ ';
+    font-size: 1.2rem;
+}
+.error-msg.active{
+    opacity: 1;
+}
+
 .add-task-container{
     display: flex;
     justify-content: space-between;
