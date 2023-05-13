@@ -41,3 +41,8 @@ function addTask(){
         updateSummary();
     }
 }
+
+function onChecked(element){
+    element.parentElement.classList.toggle("checked");
+    updateSummary();
+}
