@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css" />
     <title>Task Manager</title>
   </head>
-  <body>
+  <body onload="updateSummary()">
     <section class="hero">
       <h1 class="title">Todo List</h1>
       <div class="error-msg">
@@ -20,53 +20,20 @@
           class="add-task-input"
           placeholder="Add new task..."
         />
-        <button class="add-task-btn">Add Task</button>
+        <button class="add-task-btn" onclick="addTask()">Add Task</button>
       </div>
 
       <div class="summary">
-        <p class="summary-text">Total Tasks: <span id="total-tasks">2</span></p>
-        <p class="summary-text"> Completed Tasks: <span id="completed-tasks">1</span> </p>
-        <p class="summary-text"> Uncompleted Tasks: <span id="uncompleted-tasks">1</span> </p>
+        <p class="summary-text">Total Tasks: <span id="total-tasks"></span></p>
+        <p class="summary-text"> Completed Tasks: <span id="completed-tasks"></span> </p>
+        <p class="summary-text"> Uncompleted Tasks: <span id="uncompleted-tasks"></span> </p>
       </div>
 
       <ul class="tasks">
-        <li class="task checked">
-          <button class="task-check-btn"></button>
-          <p class="task-text">task text</p>
-          <div class="btns">
-            <button class="delete-btn">DELETE</button>
-            <button class="up-btn move-task-btn" onclick="onMoveUp(this)"></button>
-            <button class="down-btn move-task-btn" onclick="onMoveDown(this)"></button>
-          </div>
-        </li>
-        <li class="task">
-          <button class="task-check-btn"></button>
-          <p class="task-text">task text</p>
-          <div class="btns">
-            <button class="delete-btn">DELETE</button>
-            <button class="up-btn move-task-btn" onclick="onMoveUp(this)"></button>
-            <button class="down-btn move-task-btn" onclick="onMoveDown(this)"></button>
-          </div>
-        </li>
-        <li class="task">
-          <button class="task-check-btn"></button>
-          <p class="task-text">task text</p>
-          <div class="btns">
-            <button class="delete-btn">DELETE</button>
-            <button class="up-btn move-task-btn"></button>
-            <button class="down-btn move-task-btn"></button>
-          </div>
-        </li>
-        <li class="task checked">
-          <button class="task-check-btn"></button>
-          <p class="task-text">task text</p>
-          <div class="btns">
-            <button class="delete-btn">DELETE</button>
-            <button class="up-btn move-task-btn"></button>
-            <button class="down-btn move-task-btn"></button>
-          </div>
-        </li>
+        
       </ul>
     </section>
+
+
   </body>
 </html>

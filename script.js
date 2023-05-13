@@ -1,7 +1,4 @@
-function inputValidation() {
-  const input_value = document.querySelector(
-    ".add-task-container .add-task-input"
-  ).value;
+function inputValidation(input_value) {
   const error_msg = document.querySelector(".error-msg");
   if (input_value == "") {
     error_msg.querySelector("p").innerText = "Error: you didn't enter a task";
@@ -42,4 +39,31 @@ function onMoveDown(element) {
     if(nextTask){
         task.parentElement.insertBefore(nextTask, task);
     }
+}
+function addTask(){
+    const newTask_text = document.querySelector(".add-task-container .add-task-input").value;
+    if (inputValidation(newTask_text)) {
+        const newTask = document.createElement("li");
+        newTask.classList.add("task");
+        newTask.innerHTML = `<button class="task-check-btn" onclick='onChecked(this)'></button>
+        <p class="task-text">${newTask_text}</p>
+        <div class="btns">
+          <button class="delete-btn" onclick='onDelete(this)'>DELETE</button>
+          <button class="up-btn move-task-btn" onclick='onMoveUp(this)'></button>
+          <button class="down-btn move-task-btn" onclick='onMoveDown(this)'></button>
+        </div>`
+        document.querySelector("ul.tasks").appendChild(newTask);
+        document.querySelector(".add-task-container .add-task-input").value = "";
+        updateSummary();
+    }
+}
+
+function onChecked(element){
+    element.parentElement.classList.toggle("checked");
+    updateSummary();
+}
+
+function onDelete(element){
+    element.parentElement.parentElement.remove();
+    updateSummary();
 }
