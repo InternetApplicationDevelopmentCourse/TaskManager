@@ -25,6 +25,12 @@ body {
     width: 40rem;
 }
 
+.title{
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #fff;
+}
+
 .error-msg {
     color: rgb(184, 68, 68);
     font-size: 1.2rem;
@@ -35,7 +41,6 @@ body {
     width: 100%;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
-    visibility: hidden;
 }
 .error-msg p {
     display: flex;
@@ -47,7 +52,6 @@ body {
     font-size: 1.2rem;
 }
 .error-msg.active{
-    visibility: visible;
     opacity: 1;
 }
 
@@ -177,4 +181,3 @@ ul.tasks {
 .task .btns button.down-btn:before{
     content: '⬇';
 }
-
