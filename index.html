@@ -25,12 +25,8 @@
 
       <div class="summary">
         <p class="summary-text">Total Tasks: <span id="total-tasks">2</span></p>
-        <p class="summary-text">
-          Completed Tasks: <span id="completed-tasks">1</span>
-        </p>
-        <p class="summary-text">
-          Uncompleted Tasks: <span id="uncompleted-tasks">1</span>
-        </p>
+        <p class="summary-text"> Completed Tasks: <span id="completed-tasks">1</span> </p>
+        <p class="summary-text"> Uncompleted Tasks: <span id="uncompleted-tasks">1</span> </p>
       </div>
 
       <ul class="tasks">
@@ -72,14 +68,5 @@
         </li>
       </ul>
     </section>
-
-    <script>
-      const numOfTasks = document.getElementsByClassName("task").length;
-      document.getElementById("total-tasks").innerHTML = numOfTasks;
-      const numOfCompletedTasks = document.getElementsByClassName("checked").length;
-      document.getElementById("completed-tasks").innerHTML = numOfCompletedTasks;
-      const numOfUncompletedTasks = numOfTasks - numOfCompletedTasks;
-      document.getElementById("uncompleted-tasks").innerHTML = numOfUncompletedTasks;
-    </script>
   </body>
 </html>
