@@ -26,3 +26,20 @@ function updateSummary() {
   const numOfUncompletedTasks = numOfTasks - numOfCompletedTasks;
   document.getElementById("uncompleted-tasks").innerHTML = numOfUncompletedTasks;
 }
+
+//move task up
+function onMoveUp(element) {
+    const task = element.parentElement.parentElement;
+    const prevTask = task.previousElementSibling;
+    if(prevTask){
+        task.parentElement.insertBefore(task, prevTask);
+    }
+}
+
+function onMoveDown(element) {
+    const task = element.parentElement.parentElement;
+    const nextTask = task.nextElementSibling;
+    if(nextTask){
+        task.parentElement.insertBefore(nextTask, task);
+    }
+}
