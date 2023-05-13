@@ -46,3 +46,8 @@ function onChecked(element){
     element.parentElement.classList.toggle("checked");
     updateSummary();
 }
+
+function onDelete(element){
+    element.parentElement.parentElement.remove();
+    updateSummary();
+}
