@@ -35,6 +35,7 @@ body {
     width: 100%;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
+    visibility: hidden;
 }
 .error-msg p {
     display: flex;
@@ -46,6 +47,7 @@ body {
     font-size: 1.2rem;
 }
 .error-msg.active{
+    visibility: visible;
     opacity: 1;
 }
 
