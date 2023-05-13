@@ -4,10 +4,13 @@ function inputValidation() {
     if (input_value == "") {
         error_msg.querySelector('p').innerText = "Error: you didn't enter a task";
         error_msg.classList.add('active');
+        return false;
     }else if (input_value.length > 30) {
         error_msg.querySelector('p').innerText = "Error: task is too long (max 30 characters)";
         error_msg.classList.add('active');
+        return false;
     }else {
         error_msg.classList.remove('active');
+        return true;
     }
 }
