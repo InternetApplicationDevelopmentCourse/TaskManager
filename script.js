@@ -29,16 +29,15 @@ function addTask(){
     if (inputValidation(newTask_text)) {
         const newTask = document.createElement("li");
         newTask.classList.add("task");
-        newTask.innerHTML = `<button class="task-check-btn"></button>
+        newTask.innerHTML = `<button class="task-check-btn" onclick='onChecked(this)'></button>
         <p class="task-text">${newTask_text}</p>
         <div class="btns">
-          <button class="delete-btn">DELETE</button>
-          <button class="up-btn move-task-btn"></button>
-          <button class="down-btn move-task-btn"></button>
+          <button class="delete-btn" onclick='onDelete(this)'>DELETE</button>
+          <button class="up-btn move-task-btn" onclick='onMoveUp(this)'></button>
+          <button class="down-btn move-task-btn" onclick='onMoveDown(this)'></button>
         </div>`
         document.querySelector("ul.tasks").appendChild(newTask);
         document.querySelector(".add-task-container .add-task-input").value = "";
         updateSummary();
     }
-    
 }
