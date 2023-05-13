@@ -24,7 +24,6 @@ function updateSummary() {
   document.getElementById("uncompleted-tasks").innerHTML = numOfUncompletedTasks;
 }
 
-//move task up
 function onMoveUp(element) {
     const task = element.parentElement.parentElement;
     const prevTask = task.previousElementSibling;
@@ -40,6 +39,18 @@ function onMoveDown(element) {
         task.parentElement.insertBefore(nextTask, task);
     }
 }
+
+function onCheckedReposition(element){
+    if(element.parentElement.classList.contains("checked")){
+        const task = element.parentElement.parentElement;
+        task.appendChild(element.parentElement);
+    }
+    else{
+        const firstCheckedLi = document.querySelector(".checked");
+        element.parentElement.parentElement.insertBefore(element.parentElement, firstCheckedLi);
+    }
+}
+
 function addTask(){
     const newTask_text = document.querySelector(".add-task-container .add-task-input").value;
     if (inputValidation(newTask_text)) {
@@ -52,7 +63,14 @@ function addTask(){
           <button class="up-btn move-task-btn" onclick='onMoveUp(this)'></button>
           <button class="down-btn move-task-btn" onclick='onMoveDown(this)'></button>
         </div>`
-        document.querySelector("ul.tasks").appendChild(newTask);
+        const ul = document.querySelector("ul.tasks");
+        const firstCheckedLi = document.querySelector(".checked");
+        if(firstCheckedLi == null){
+            ul.appendChild(newTask);
+        }
+        else{
+            ul.insertBefore(newTask, firstCheckedLi);
+        }
         document.querySelector(".add-task-container .add-task-input").value = "";
         updateSummary();
     }
@@ -60,6 +78,7 @@ function addTask(){
 
 function onChecked(element){
     element.parentElement.classList.toggle("checked");
+    onCheckedReposition(element);
     updateSummary();
 }
 
