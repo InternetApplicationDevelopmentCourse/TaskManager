@@ -15,6 +15,17 @@
         <p>Error, try again...</p>
       </div>
       <div class="add-task-container">
+        <input
+          type="text"
+          class="add-task-input"
+          placeholder="Add new task..."
+        />
+        <div>
+          <button class="add-task-btn" onclick="addTask()">
+            Add Task
+          </button>
+          <div class="under-btn-layer"></div>
+        </div>
         <div class="add-task-input-wrapper">
           <input
             type="text"
@@ -22,7 +33,6 @@
             placeholder="Add new task..."
           />
         </div>
-        <button class="add-task-btn" onclick="addTask()">Add Task</button>
       </div>
 
       <div class="summary">
