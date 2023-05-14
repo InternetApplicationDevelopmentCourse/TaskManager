@@ -61,7 +61,23 @@ body {
     gap: 1rem;
     width: 100%;
 }
-
+.add-task-input-wrapper {
+    position: relative;
+    flex: 1;
+    display: flex;
+}
+.add-task-input-wrapper::after {
+    content: 'ENTER';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    color: rgb(167, 167, 167);
+    background: #fff;
+    pointer-events: none;
+}
 .add-task-container .add-task-input {
     flex: 1;
     padding: 0.75rem;
@@ -69,6 +85,9 @@ body {
     border-radius: 5px;
     outline: 0;
     font-size: 1.2rem;
+}
+.add-task-container .add-task-input::after{
+    content: 'enter';
 }
 
 .add-task-container .add-task-btn {
