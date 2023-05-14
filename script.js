@@ -77,6 +77,7 @@ function addTask() {
     }
     document.querySelector(".add-task-container .add-task-input").value = "";
     updateSummary();
+    document.querySelector(".add-task-container .add-task-input").focus();
   }
 }
 
@@ -91,7 +92,6 @@ function onDelete(element) {
   updateSummary();
 }
 
-//on enter key press
 document.querySelector(".add-task-container .add-task-input").addEventListener("keyup", function (event) {
     if (event.keyCode === 13) {
       event.preventDefault();
