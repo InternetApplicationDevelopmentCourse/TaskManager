@@ -140,6 +140,8 @@ ul.tasks {
     width: 100%;
     gap: 1rem;
     padding: 1rem;
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
 }
 .task.hidden {
     display: none;
@@ -227,4 +229,8 @@ ul.tasks {
 
 .add-task-btn:active{
     transform: translateY(5px);
+}
+
+.scale-0{
+    transform: scale(0);
 }

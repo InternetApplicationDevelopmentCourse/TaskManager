@@ -83,8 +83,16 @@ function addTask() {
 }
 
 function onChecked(element) {
-  element.parentElement.classList.toggle("checked");
-  onCheckedReposition(element);
+    console.log(element.parentElement);
+    element.parentElement.classList.add('scale-0');
+    setTimeout(() => {
+        element.parentElement.classList.toggle("checked");
+        onCheckedReposition(element);
+    }, 300);
+    setTimeout(() => {
+        element.parentElement.classList.remove('scale-0');
+    }, 400);
+  
   updateSummary();
 }
 
