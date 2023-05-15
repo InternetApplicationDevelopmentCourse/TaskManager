@@ -65,6 +65,9 @@ body {
     position: relative;
     flex: 1;
     display: flex;
+    background: #fff;
+    border-radius: 5px;
+    overflow: hidden;
 }
 .add-task-input-wrapper::after {
     content: 'ENTER';
@@ -79,10 +82,11 @@ body {
     pointer-events: none;
 }
 .add-task-container .add-task-input {
-    flex: 1;
+    flex: .8;
     padding: 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    /* border: 1px solid #ccc; */
+    border: 0;
+    /* border-radius: 5px; */
     outline: 0;
     font-size: 1.2rem;
 }
