@@ -26,11 +26,11 @@
       </div>
 
       <div class="summary">
-        <p class="summary-text">Total Tasks: <span id="total-tasks"></span></p>
-        <p class="summary-text">
+        <p class="summary-text filter-active" id="total-tasks-filter" onclick="onFilter(this, 0)">Total Tasks: <span id="total-tasks"></span></p>
+        <p class="summary-text" onclick="onFilter(this, 1)">
           Completed Tasks: <span id="completed-tasks"></span>
         </p>
-        <p class="summary-text">
+        <p class="summary-text" onclick="onFilter(this, 2)">
           Uncompleted Tasks: <span id="uncompleted-tasks"></span>
         </p>
       </div>

@@ -78,6 +78,7 @@ function addTask() {
     document.querySelector(".add-task-container .add-task-input").value = "";
     updateSummary();
     document.querySelector(".add-task-container .add-task-input").focus();
+    document.querySelector('#total-tasks-filter').click()
   }
 }
 
@@ -92,7 +93,43 @@ function onDelete(element) {
   updateSummary();
 }
 
-document.querySelector(".add-task-container .add-task-input").addEventListener("keyup", function (event) {
+function onFilter(element, opt) {
+  const filter = document.querySelector(".summary .filter-active");
+  filter.classList.remove("filter-active");
+  element.classList.add("filter-active");
+
+  if (opt == 0) {
+    // show all tasks
+    const tasks = document.querySelectorAll(".task");
+    tasks.forEach((task) => {
+      task.classList.remove("hidden");
+    });
+  } else if (opt == 1) {
+    // show completed tasks
+    const tasks = document.querySelectorAll(".task");
+    tasks.forEach((task) => {
+      if (!task.classList.contains("checked")) {
+        task.classList.add("hidden");
+      } else {
+        task.classList.remove("hidden");
+      }
+    });
+  } else if (opt == 2) {
+    // show uncompleted tasks
+    const tasks = document.querySelectorAll(".task");
+    tasks.forEach((task) => {
+      if (task.classList.contains("checked")) {
+        task.classList.add("hidden");
+      } else {
+        task.classList.remove("hidden");
+      }
+    });
+  }
+}
+
+document
+  .querySelector(".add-task-container .add-task-input")
+  .addEventListener("keyup", function (event) {
     if (event.keyCode === 13) {
       event.preventDefault();
       document.querySelector(".add-task-container .add-task-btn").click();

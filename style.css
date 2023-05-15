@@ -86,9 +86,6 @@ body {
     outline: 0;
     font-size: 1.2rem;
 }
-.add-task-container .add-task-input::after{
-    content: 'enter';
-}
 
 .add-task-container .add-task-btn {
     padding: 0.5rem 1rem;
@@ -113,6 +110,13 @@ body {
     border-radius: 5px;
     background-color: #fff;
 }
+.summary-text {
+    cursor: pointer;
+    color: rgb(129, 129, 129);
+}
+.summary-text.filter-active {
+    color: black;
+}
 
 ul.tasks {
     display: flex;
@@ -121,6 +125,7 @@ ul.tasks {
     width: 100%;
     background: #fff;
     border-radius: 0.5rem;
+    overflow: hidden;
 }
 
 .task {
@@ -131,6 +136,9 @@ ul.tasks {
     width: 100%;
     gap: 1rem;
     padding: 1rem;
+}
+.task.hidden {
+    display: none;
 }
 .task:last-child {
     border-bottom: none;
