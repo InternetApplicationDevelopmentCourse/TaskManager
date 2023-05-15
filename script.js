@@ -83,6 +83,8 @@ function addTask() {
     updateSummary();
     document.querySelector(".add-task-container .add-task-input").focus();
     document.querySelector("#total-tasks-filter").click();
+    document.querySelector("#current-task-length").innerHTML =
+      inputTask.value.length;
   }
 }
 
@@ -148,3 +150,17 @@ document
       document.querySelector(".add-task-container .add-task-btn").click();
     }
   });
+
+function handleChange(event) {
+  const currentTaskLength = document.querySelector("#current-task-length");
+  if (event.target.value.length > 30) {
+    currentTaskLength.parentElement.classList.add("error");
+  } else currentTaskLength.parentElement.classList.remove("error");
+
+  currentTaskLength.innerHTML = event.target.value.length;
+}
+
+const inputTask = document.querySelector(".add-task-container .add-task-input");
+inputTask.addEventListener("input", handleChange);
+document.querySelector("#current-task-length").innerHTML =
+  inputTask.value.length;

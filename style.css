@@ -234,3 +234,18 @@ ul.tasks {
 .scale-0{
     transform: scale(0);
 }
+
+.label-for-input {
+    position: absolute;
+    bottom: -5px;
+    right: 3rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    color: rgb(167, 167, 167);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.label-for-input.error {
+    color: rgb(184, 68, 68);
+}

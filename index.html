@@ -16,11 +16,8 @@
       </div>
       <div class="add-task-container">
         <div class="add-task-input-wrapper">
-          <input
-            type="text"
-            class="add-task-input"
-            placeholder="Add new task..."
-          />
+          <input id="add-task-input" type="text" class="add-task-input" placeholder="Add new task..." />
+          <label class="label-for-input" for="add-task-input"><span id="current-task-length"></span>/30</label>
         </div>
         <div>
           <button class="add-task-btn" onclick="addTask()">
