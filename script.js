@@ -61,6 +61,7 @@ function addTask() {
   if (inputValidation(newTask_text)) {
     const newTask = document.createElement("li");
     newTask.classList.add("task");
+    newTask.classList.add("scale-0");
     newTask.innerHTML = `<button class="task-check-btn" onclick='onChecked(this)'></button>
         <p class="task-text">${newTask_text}</p>
         <div class="btns">
@@ -75,22 +76,36 @@ function addTask() {
     } else {
       ul.insertBefore(newTask, firstCheckedLi);
     }
+    setTimeout(() => {
+      newTask.classList.remove("scale-0");
+    }, 100);
     document.querySelector(".add-task-container .add-task-input").value = "";
     updateSummary();
     document.querySelector(".add-task-container .add-task-input").focus();
-    document.querySelector('#total-tasks-filter').click()
+    document.querySelector("#total-tasks-filter").click();
+    document.querySelector("#current-task-length").innerHTML =
+      inputTask.value.length;
   }
 }
 
 function onChecked(element) {
-  element.parentElement.classList.toggle("checked");
-  onCheckedReposition(element);
-  updateSummary();
+  element.parentElement.classList.add("scale-0");
+  setTimeout(() => {
+    element.parentElement.classList.toggle("checked");
+    onCheckedReposition(element);
+    updateSummary();
+  }, 300);
+  setTimeout(() => {
+    element.parentElement.classList.remove("scale-0");
+  }, 400);
 }
 
 function onDelete(element) {
-  element.parentElement.parentElement.remove();
-  updateSummary();
+  element.parentElement.parentElement.classList.add("scale-0");
+  setTimeout(() => {
+    element.parentElement.parentElement.remove();
+    updateSummary();
+  }, 300);
 }
 
 function onFilter(element, opt) {
@@ -135,3 +150,17 @@ document
       document.querySelector(".add-task-container .add-task-btn").click();
     }
   });
+
+function handleChange(event) {
+  const currentTaskLength = document.querySelector("#current-task-length");
+  if (event.target.value.length > 30) {
+    currentTaskLength.parentElement.classList.add("error");
+  } else currentTaskLength.parentElement.classList.remove("error");
+
+  currentTaskLength.innerHTML = event.target.value.length;
+}
+
+const inputTask = document.querySelector(".add-task-container .add-task-input");
+inputTask.addEventListener("input", handleChange);
+document.querySelector("#current-task-length").innerHTML =
+  inputTask.value.length;
