@@ -28,21 +28,26 @@ function updateSummary() {
 function onMoveUp(element) {
   const task = element.parentElement.parentElement;
   const prevTask = task.previousElementSibling;
-  if (prevTask) {
+  if (prevTask && (isChecked(prevTask) == isChecked(task))) {
     task.parentElement.insertBefore(task, prevTask);
   }
+}
+
+
+function isChecked(element){
+  return element.classList.contains("checked");
 }
 
 function onMoveDown(element) {
   const task = element.parentElement.parentElement;
   const nextTask = task.nextElementSibling;
-  if (nextTask) {
+  if (nextTask && (isChecked(nextTask) == isChecked(task))) {
     task.parentElement.insertBefore(nextTask, task);
   }
 }
 
 function onCheckedReposition(element) {
-  if (element.parentElement.classList.contains("checked")) {
+  if (isChecked(element.parentElement)) {
     const task = element.parentElement.parentElement;
     task.appendChild(element.parentElement);
   } else {
