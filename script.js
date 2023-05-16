@@ -98,7 +98,11 @@ function addTask() {
     document.querySelector(".add-task-container .add-task-input").value = "";
     updateSummary();
     document.querySelector(".add-task-container .add-task-input").focus();
-    document.querySelector("#total-tasks-filter").click();
+    const filter = document.querySelector(".summary .filter-active");
+    const filterProp = filter.getAttribute("data_filter");
+    if(filterProp == 1) {
+        document.querySelector("#total-tasks-filter").click();
+    }
     document.querySelector("#current-task-length").innerHTML =
       inputTask.value.length;
   }
