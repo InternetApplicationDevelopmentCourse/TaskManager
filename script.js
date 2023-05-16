@@ -179,6 +179,15 @@ document
     }
   });
 
+  document
+  .querySelector("#edit-task-input")
+  .addEventListener("keyup", function (event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      document.querySelector("#save-edit-btn").click();
+    }
+  });
+
 function handleChange(event) {
   const currentTaskLength = document.querySelector("#current-task-length");
   if (event.target.value.length > 30) {
@@ -243,13 +252,44 @@ function randomColor() {
 }
 
 function editTaskTitle(element){
-  const taskText = element.parentElement.parentElement.querySelector(".task-text");
-  const taskInput = document.querySelector(".add-task-input");
-  if(inputValidation(taskInput.value)){
-    taskText.innerHTML = taskInput.value;
-    taskInput.value = "";
-    taskInput.focus();
-    document.querySelector("#current-task-length").innerHTML =
-      inputTask.value.length;
+  onOpenPopup(element)
+  element.parentElement.parentElement.classList.add("isEdited");
+}
+
+function onSaveEditedTask(){
+  const editTaskInput = document.querySelector("#edit-task-input");
+  const isEditedTask = document.querySelector(".isEdited");
+  if(!inputValidation(editTaskInput.value)) return;
+  isEditedTask.querySelector(".task-text").innerHTML = editTaskInput.value;
+  onClosePopup();
+}
+
+function onOpenPopup(edit_element) {
+  document.querySelector(".popup").classList.add("active");
+  const taskText = edit_element.parentElement.parentElement.querySelector(
+    ".task-text"
+  );
+  const editTaskInput = document.querySelector("#edit-task-input");
+  editTaskInput.value = taskText.innerHTML;
+  editTaskInput.focus()
+  onHandleEditInput();
+}
+
+function onClosePopup() {
+  document.querySelector(".popup").classList.remove("active");
+  const isEditedTask = document.querySelector(".isEdited");
+
+  isEditedTask.classList.remove('isEdited')
+}
+
+function onHandleEditInput() {
+  const edit_input = document.querySelector("#edit-task-input");
+  const edit_input_length = document.querySelector("#edit-task-length");
+  if (edit_input.value.length > 30) {
+    edit_input_length.parentElement.classList.add("error");
   }
+  else{
+    edit_input_length.parentElement.classList.remove("error");
+  }
+  edit_input_length.innerHTML = edit_input.value.length;
 }

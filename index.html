@@ -9,6 +9,24 @@
     <title>Task Manager</title>
   </head>
   <body onload="updateSummary()">
+    <div class="popup">
+      <div class="overlay" onclick="onClosePopup()"></div>
+      <div class="popup-modal">
+        <h2>Edit Task</h3>
+          <div class="error-msg"><p></p></div>
+        <div class="edit-task-input-wrapper">
+          <input id="edit-task-input" oninput="onHandleEditInput()" type="text" class="edit-task-input" placeholder="Edit task..." />
+          <label class="edit-task-counter" for="edit-task-input"><span id="edit-task-length">0</span>/30</label>
+        </div>
+        <div class="modal-btns">
+          <div id="close-modal" onclick="onClosePopup()"><i class="fa-solid fa-xmark"></i></div>
+          <div class="btn-3d-effect">
+            <button class="add-task-btn" id="save-edit-btn" onclick="onSaveEditedTask()">Save</button>
+            <div class="under-btn-layer"></div>
+          </div>
+        </div>
+      </div>
+    </div>
     <section class="hero">
       <h1 class="title">Todo List</h1>
       <div class="error-msg">
@@ -19,7 +37,7 @@
           <input id="add-task-input" type="text" class="add-task-input" placeholder="Add new task..." />
           <label class="label-for-input" for="add-task-input"><span id="current-task-length"></span>/30</label>
         </div>
-        <div>
+        <div class="btn-3d-effect">
           <button class="add-task-btn" onclick="addTask()">
             Add Task
           </button>
