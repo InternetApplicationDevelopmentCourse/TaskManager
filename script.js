@@ -28,21 +28,32 @@ function updateSummary() {
 function onMoveUp(element) {
   const task = element.parentElement.parentElement;
   const prevTask = task.previousElementSibling;
-  if (prevTask && (isChecked(prevTask) == isChecked(task))) {
-    task.parentElement.insertBefore(task, prevTask);
+  if (prevTask && isChecked(prevTask) == isChecked(task)) {
+    task.classList.add("scale-0");
+    setTimeout(() => {
+      task.parentElement.insertBefore(task, prevTask);
+    }, 300);
+    setTimeout(() => {
+      task.classList.remove("scale-0");
+    }, 400);
   }
 }
 
-
-function isChecked(element){
+function isChecked(element) {
   return element.classList.contains("checked");
 }
 
 function onMoveDown(element) {
   const task = element.parentElement.parentElement;
   const nextTask = task.nextElementSibling;
-  if (nextTask && (isChecked(nextTask) == isChecked(task))) {
-    task.parentElement.insertBefore(nextTask, task);
+  if (nextTask && isChecked(nextTask) == isChecked(task)) {
+    task.classList.add("scale-0");
+    setTimeout(() => {
+      task.parentElement.insertBefore(nextTask, task);
+    }, 300);
+    setTimeout(() => {
+      task.classList.remove("scale-0");
+    }, 400);
   }
 }
 
