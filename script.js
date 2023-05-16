@@ -40,7 +40,11 @@ function onMoveUp(element) {
 }
 
 function isChecked(element) {
-  return element.classList.contains("checked");
+  if(element.classList.contains("checked")){
+    fireWorks(element);
+    return true;
+  }
+  return false;
 }
 
 function onMoveDown(element) {
@@ -100,8 +104,8 @@ function addTask() {
     document.querySelector(".add-task-container .add-task-input").focus();
     const filter = document.querySelector(".summary .filter-active");
     const filterProp = filter.getAttribute("data_filter");
-    if(filterProp == 1) {
-        document.querySelector("#total-tasks-filter").click();
+    if (filterProp == 1) {
+      document.querySelector("#total-tasks-filter").click();
     }
     document.querySelector("#current-task-length").innerHTML =
       inputTask.value.length;
@@ -187,3 +191,52 @@ const inputTask = document.querySelector(".add-task-container .add-task-input");
 inputTask.addEventListener("input", handleChange);
 document.querySelector("#current-task-length").innerHTML =
   inputTask.value.length;
+
+function fireWorks(element) {
+  const particles = [];
+  const color = randomColor();
+
+  const particle = document.createElement("span");
+  particle.classList.add("particle", "move");
+
+  const { x, y } = randomLocation();
+  particle.style.setProperty("--x", x);
+  particle.style.setProperty("--y", y);
+  particle.style.background = color;
+
+  element.parentElement.parentElement.appendChild(particle);
+
+  particles.push(particle);
+
+  setTimeout(() => {
+    for (let i = 0; i < 100; i++) {
+      const innerP = document.createElement("span");
+      innerP.classList.add("particle", "move");
+      innerP.style.transform = `translate(${x}, ${y})`;
+      const xs = Math.random() * 200 - 100 + "px";
+      const ys = Math.random() * 200 - 100 + "px";
+      innerP.style.setProperty("--x", `calc(${x} + ${xs})`);
+      innerP.style.setProperty("--y", `calc(${y} + ${ys})`);
+      innerP.style.animationDuration = Math.random() * 300 + 200 + "ms";
+      innerP.style.background = color;
+      element.parentElement.parentElement.appendChild(innerP);
+      particles.push(innerP);
+    }
+    setTimeout(() => {
+      particles.forEach((particle) => {
+        particle.remove();
+      });
+    }, 1000);
+  }, 1000);
+}
+
+function randomLocation() {
+  return {
+    x: Math.random() * window.innerWidth - window.innerWidth / 2 + "px",
+    y: Math.random() * window.innerHeight - window.innerHeight / 2 + "px",
+  };
+}
+
+function randomColor() {
+  return `hsl(${Math.floor(Math.random() * 361)}, 100%, 50%)`;
+}

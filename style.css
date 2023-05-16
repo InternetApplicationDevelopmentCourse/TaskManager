@@ -253,3 +253,36 @@ ul.tasks {
 .label-for-input.error {
     color: rgb(184, 68, 68);
 }
+
+
+/* Firework Attempt */
+.particle {
+    --x: 0;
+    --y: 0;
+    background-color: rebeccapurple;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 7px;
+    width: 7px;
+    z-index: 0;
+}
+
+.particle.move {
+    animation: move 1000ms linear forwards;
+}
+
+@keyframes move {
+    to {
+        transform: translate(var(--x), var(--y));
+    }
+
+    95% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
