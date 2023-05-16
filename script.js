@@ -278,8 +278,8 @@ function onOpenPopup(edit_element) {
 function onClosePopup() {
   document.querySelector(".popup").classList.remove("active");
   const isEditedTask = document.querySelector(".isEdited");
-
   isEditedTask.classList.remove('isEdited')
+  document.querySelector(".error-msg-edit").classList.remove("active");
 }
 
 function onHandleEditInput() {
