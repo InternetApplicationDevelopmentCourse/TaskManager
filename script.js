@@ -112,6 +112,9 @@ function onChecked(element) {
     updateSummary();
   }, 300);
   setTimeout(() => {
+    const filter = document.querySelector(".summary .filter-active");
+    const filterProp = filter.getAttribute("data_filter");
+    onFilter(filter, filterProp);
     element.parentElement.classList.remove("scale-0");
   }, 400);
 }
