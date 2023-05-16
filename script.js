@@ -187,6 +187,11 @@ document
       event.preventDefault();
       document.querySelector("#save-edit-btn").click();
     }
+    if (event.keyCode === 27) {
+      event.preventDefault();
+      onClosePopup();
+    }
+    
   });
 
 function handleChange(event) {
