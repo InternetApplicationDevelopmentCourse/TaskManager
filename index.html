@@ -13,7 +13,7 @@
       <div class="overlay" onclick="onClosePopup()"></div>
       <div class="popup-modal">
         <h2>Edit Task</h3>
-          <div class="error-msg error-msg-edit"><p></p></div>
+          <div id="edit-task-error" class="error-msg"><p></p></div>
         <div class="edit-task-input-wrapper">
           <input id="edit-task-input" oninput="onHandleEditInput()" type="text" class="edit-task-input" placeholder="Edit task..." />
           <label class="edit-task-counter" for="edit-task-input"><span id="edit-task-length">0</span>/30</label>
@@ -29,7 +29,7 @@
     </div>
     <section class="hero">
       <h1 class="title">Todo List</h1>
-      <div class="error-msg">
+      <div id="add-task-error" class="error-msg">
         <p>Error, try again...</p>
       </div>
       <div class="add-task-container">

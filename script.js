@@ -1,16 +1,16 @@
-function inputValidation(input_value) {
-  const error_msg = document.querySelector(".error-msg");
+function inputValidation(input_value, errorElement) {
+  // const error_msg = document.querySelector(".error-msg");
   if (input_value == "") {
-    error_msg.querySelector("p").innerText = "Error: you didn't enter title for the task";
-    error_msg.classList.add("active");
+    errorElement.querySelector("p").innerText = "Error: you didn't enter title for the task";
+    errorElement.classList.add("active");
     return false;
   } else if (input_value.length > 30) {
-    error_msg.querySelector("p").innerText =
+    errorElement.querySelector("p").innerText =
       "Error: task is too long (max 30 characters)";
-    error_msg.classList.add("active");
+      errorElement.classList.add("active");
     return false;
   } else {
-    error_msg.classList.remove("active");
+    errorElement.classList.remove("active");
     return true;
   }
 }
@@ -78,7 +78,8 @@ function addTask() {
   const newTask_text = document.querySelector(
     ".add-task-container .add-task-input"
   ).value;
-  if (inputValidation(newTask_text)) {
+  const addTaskError = document.querySelector("#add-task-error");
+  if (inputValidation(newTask_text, addTaskError)) {
     const newTask = document.createElement("li");
     newTask.classList.add("task");
     newTask.classList.add("scale-0");
@@ -259,7 +260,8 @@ function editTaskTitle(element){
 function onSaveEditedTask(){
   const editTaskInput = document.querySelector("#edit-task-input");
   const isEditedTask = document.querySelector(".isEdited");
-  if(!inputValidation(editTaskInput.value)) return;
+  const editTaskError = document.querySelector("#edit-task-error");
+  if(!inputValidation(editTaskInput.value, editTaskError)) return;
   isEditedTask.querySelector(".task-text").innerHTML = editTaskInput.value;
   onClosePopup();
 }
@@ -279,7 +281,7 @@ function onClosePopup() {
   document.querySelector(".popup").classList.remove("active");
   const isEditedTask = document.querySelector(".isEdited");
   isEditedTask.classList.remove('isEdited')
-  document.querySelector(".error-msg-edit").classList.remove("active");
+  document.querySelector("#edit-task-error").classList.remove("active");
 }
 
 function onHandleEditInput() {
