@@ -1,7 +1,7 @@
 function inputValidation(input_value) {
   const error_msg = document.querySelector(".error-msg");
   if (input_value == "") {
-    error_msg.querySelector("p").innerText = "Error: you didn't enter a task";
+    error_msg.querySelector("p").innerText = "Error: you didn't enter title for the task";
     error_msg.classList.add("active");
     return false;
   } else if (input_value.length > 30) {
@@ -85,9 +85,10 @@ function addTask() {
     newTask.innerHTML = `<button class="task-check-btn" onclick='onChecked(this)'></button>
         <p class="task-text">${newTask_text}</p>
         <div class="btns">
-          <button class="delete-btn" onclick='onDelete(this)'>DELETE</button>
+          <button class="delete-btn" onclick='onDelete(this)'></button>
           <button class="up-btn move-task-btn" onclick='onMoveUp(this)'></button>
           <button class="down-btn move-task-btn" onclick='onMoveDown(this)'></button>
+          <button class="edit-btn" onclick='editTaskTitle(this)'></button>
         </div>`;
     const ul = document.querySelector("ul.tasks");
     const firstCheckedLi = document.querySelector(".checked");
@@ -239,4 +240,16 @@ function randomLocation() {
 
 function randomColor() {
   return `hsl(${Math.floor(Math.random() * 361)}, 100%, 50%)`;
+}
+
+function editTaskTitle(element){
+  const taskText = element.parentElement.parentElement.querySelector(".task-text");
+  const taskInput = document.querySelector(".add-task-input");
+  if(inputValidation(taskInput.value)){
+    taskText.innerHTML = taskInput.value;
+    taskInput.value = "";
+    taskInput.focus();
+    document.querySelector("#current-task-length").innerHTML =
+      inputTask.value.length;
+  }
 }

@@ -190,19 +190,34 @@ ul.tasks {
     align-items: center;
 }
 
+.task.checked .btns button.edit-btn{
+    pointer-events: none;
+}
+
+.task.checked .btns button.edit-btn::before {
+    color:rgb(157, 157, 157) !important;
+}
+
 .task .btns button {
     padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 5px;
     cursor: pointer;
+    transition:all 0.3s ease-in-out;
+}
+
+.task .btns button:hover{
+    transform:scale(1.2);
 }
 
 .task .btns button.delete-btn {
-    background-color: rgb(184, 68, 68);
+    background-color: transparent;
+    border:0;
     color: #fff;
 }
 .task .btns button.move-task-btn {
-    background-color: rgb(68, 70, 184);
+    background-color: transparent;
+    border:0;
     color: #fff;
     width: 2rem;
     height: 2rem;
@@ -212,11 +227,63 @@ ul.tasks {
     align-items: center;
 }
 
+.task .btns button.edit-btn{
+    background-color: transparent;
+    color: #fff;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:0;
+}
+
+.task .btns button.edit-btn:before{
+    content: '\f044';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    color:black;
+    font-size: 1.5rem;
+}
+
+.task:first-child .btns button.up-btn{
+    pointer-events: none;
+}
+
+.task:first-child .btns button.up-btn:before{
+    color:rgb(157, 157, 157);
+}
+
+.task:last-child .btns button.down-btn{
+    pointer-events: none;
+}
+
+.task:last-child .btns button.down-btn:before{
+    color:rgb(157, 157, 157);
+}
+
 .task .btns button.up-btn:before {
-    content: '⬆';
+    content: '\f062';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    color:black;
+    font-size: 1.5rem;
 }
 .task .btns button.down-btn:before{
-    content: '⬇';
+    content: '\f063';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    color:black;
+    font-size: 1.5rem;
+}
+
+.task .btns button.delete-btn:before{
+    content: '\f1f8';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    color:rgb(184, 68, 68);
+    font-size: 1.5rem;
 }
 
 .under-btn-layer{
@@ -254,8 +321,6 @@ ul.tasks {
     color: rgb(184, 68, 68);
 }
 
-
-/* Firework Attempt */
 .particle {
     --x: 0;
     --y: 0;
