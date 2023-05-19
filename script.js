@@ -1,13 +1,17 @@
+// Tal Mekler, 318811122
+// Lior Hassin, 205567916
+
 function inputValidation(input_value, errorElement) {
   // const error_msg = document.querySelector(".error-msg");
   if (input_value == "") {
-    errorElement.querySelector("p").innerText = "Error: you didn't enter title for the task";
+    errorElement.querySelector("p").innerText =
+      "Error: you didn't enter title for the task";
     errorElement.classList.add("active");
     return false;
   } else if (input_value.length > 30) {
     errorElement.querySelector("p").innerText =
       "Error: task is too long (max 30 characters)";
-      errorElement.classList.add("active");
+    errorElement.classList.add("active");
     return false;
   } else {
     errorElement.classList.remove("active");
@@ -40,7 +44,7 @@ function onMoveUp(element) {
 }
 
 function isChecked(element) {
-  if(element.classList.contains("checked")){
+  if (element.classList.contains("checked")) {
     fireWorks(element);
     return true;
   }
@@ -180,7 +184,7 @@ document
     }
   });
 
-  document
+document
   .querySelector("#edit-task-input")
   .addEventListener("keyup", function (event) {
     if (event.keyCode === 13) {
@@ -191,7 +195,6 @@ document
       event.preventDefault();
       onClosePopup();
     }
-    
   });
 
 function handleChange(event) {
@@ -257,35 +260,34 @@ function randomColor() {
   return `hsl(${Math.floor(Math.random() * 361)}, 100%, 50%)`;
 }
 
-function editTaskTitle(element){
-  onOpenPopup(element)
+function editTaskTitle(element) {
+  onOpenPopup(element);
   element.parentElement.parentElement.classList.add("isEdited");
 }
 
-function onSaveEditedTask(){
+function onSaveEditedTask() {
   const editTaskInput = document.querySelector("#edit-task-input");
   const isEditedTask = document.querySelector(".isEdited");
   const editTaskError = document.querySelector("#edit-task-error");
-  if(!inputValidation(editTaskInput.value, editTaskError)) return;
+  if (!inputValidation(editTaskInput.value, editTaskError)) return;
   isEditedTask.querySelector(".task-text").innerHTML = editTaskInput.value;
   onClosePopup();
 }
 
 function onOpenPopup(edit_element) {
   document.querySelector(".popup").classList.add("active");
-  const taskText = edit_element.parentElement.parentElement.querySelector(
-    ".task-text"
-  );
+  const taskText =
+    edit_element.parentElement.parentElement.querySelector(".task-text");
   const editTaskInput = document.querySelector("#edit-task-input");
   editTaskInput.value = taskText.innerHTML;
-  editTaskInput.focus()
+  editTaskInput.focus();
   onHandleEditInput();
 }
 
 function onClosePopup() {
   document.querySelector(".popup").classList.remove("active");
   const isEditedTask = document.querySelector(".isEdited");
-  isEditedTask.classList.remove('isEdited')
+  isEditedTask.classList.remove("isEdited");
   document.querySelector("#edit-task-error").classList.remove("active");
 }
 
@@ -294,8 +296,7 @@ function onHandleEditInput() {
   const edit_input_length = document.querySelector("#edit-task-length");
   if (edit_input.value.length > 30) {
     edit_input_length.parentElement.classList.add("error");
-  }
-  else{
+  } else {
     edit_input_length.parentElement.classList.remove("error");
   }
   edit_input_length.innerHTML = edit_input.value.length;
