@@ -1,5 +1,5 @@
 // Tal Mekler, 318811122
-// Lior Hassin, 205567916
+// Lior Hassin, 318231792
 
 function inputValidation(input_value, errorElement) {
   // const error_msg = document.querySelector(".error-msg");
